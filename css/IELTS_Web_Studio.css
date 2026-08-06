@@ -1,0 +1,382 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+}
+
+/* ===== Basic Reset & Typography ===== */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f8fc;
+    color: #333;
+}
+
+/* ===== Semantic Grid Layout (Mobile-First) ===== */
+main {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "hero"
+        "content"
+        "sidebar"
+        "footer";
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+}
+
+/* ===== Header & Mobile Navigation Styling ===== */
+header { 
+    grid-area: header; 
+    background-color: #1e3a8a; 
+    color: white; 
+    padding: 15px 5%; 
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.open .bar:nth-child(2) { opacity: 0; }
+.hamburger.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+nav { 
+    display: none; 
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px; 
+    background-color: #152c69; 
+    border-radius: 5px;
+    padding: 10px 0;
+}
+
+nav.active-menu {
+    display: flex;
+}
+
+nav a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 1rem;
+    display: block;
+    padding: 10px 0;
+}
+
+nav a:hover, nav a.active { text-decoration: underline; color: #93c5fd; }
+
+/* ===== Content Elements Styling ===== */
+h1 { margin: 0; font-size: 1.8rem; }
+h2, h3 { color: #1e3a8a; margin-top: 0; }
+.hero h2 { font-size: 2.2rem; margin-bottom: 10px; }
+ul { padding-left: 20px; }
+li { margin-bottom: 10px; }
+hr { border: none; background: #ddd; height: 1px; margin: 20px 0; }
+
+.hero { 
+    grid-area: hero; 
+    background-color: #e0ecff; 
+    padding: 40px 5%; 
+    text-align: center; 
+    border-bottom: 2px solid #93c5fd; 
+}
+
+.content { 
+    grid-area: content; 
+    padding: 40px 5%; 
+    background-color: #ffffff; 
+}
+
+.sidebar { 
+    grid-area: sidebar; 
+    padding: 40px 5%; 
+    background-color: #f4f8fc; 
+    border-left: 1px solid #ddd; 
+}
+
+footer { 
+    grid-area: footer; 
+    background-color: #333; 
+    color: white; 
+    text-align: center; 
+    padding: 20px 5%; 
+}
+
+/* ===== Image Styling ===== */
+.profile-img { 
+    width: 100%; 
+    max-width: 250px; 
+    height: auto; 
+    border-radius: 10px; 
+    margin-top: 5px;
+    margin-bottom: 15px;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.demo-img { 
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ddd; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* ===== Buttons ===== */
+.btn-link { 
+    display: inline-block; 
+    background-color: #1e3a8a; 
+    color: white; 
+    padding: 8px 20px; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    margin-top: 10px; 
+    transition: background-color 0.3s;
+}
+.btn-link:hover { background-color: #93c5fd; text-decoration: none; }
+
+/* ===== Tablet Layout (>= 768px) ===== */
+@media (min-width: 768px) {
+    main {
+        grid-template-areas:
+            "header header"
+            "hero hero"
+            "content sidebar"
+            "footer footer";
+        grid-template-columns: 2fr 1fr;
+    }
+    header, .hero, .content, .sidebar, footer { padding-left: 30px; padding-right: 30px; }
+    
+    .hamburger { 
+        display: none; 
+    }
+    
+    nav { 
+        display: block !important;
+        background-color: transparent;
+        margin-top: 5px;
+        padding: 0;
+        text-align: left;
+    }
+    nav a {
+        display: inline-block;
+        margin: 0 15px 0 0;
+        padding: 0;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== Desktop Layout (>= 1024px) ===== */
+@media (min-width: 1024px) {
+    main {
+        grid-template-columns: 1fr minmax(auto, 750px) minmax(auto, 350px) 1fr;
+        grid-template-areas:
+            "header header header header"
+            ". hero hero ."
+            ". content sidebar ."
+            "footer footer footer footer";
+    }
+    
+    header { 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 20px; 
+        padding-right: 20px; 
+    }
+    
+    .header-top {
+        justify-content: center;
+    }
+    
+    nav {
+        text-align: center;
+    }
+    
+    nav a {
+        margin: 0 15px;
+    }
+}
+
+/* ===== NEW: Topic Grid for Speaking Index ===== */
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.topic-grid a {
+    display: block;
+    background: #f0f4fa;
+    padding: 12px 8px;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #1a2a3a;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    border: 1px solid #dce3ed;
+}
+
+.topic-grid a:hover {
+    background: #d4e0f0;
+    transform: translateY(-2px);
+    border-color: #8aa3c9;
+}
+
+.topic-grid a:active {
+    transform: translateY(0);
+}
+
+/* 小屏设备（手机）调整列宽 */
+@media (max-width: 480px) {
+    .topic-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 8px;
+    }
+    .topic-grid a {
+        padding: 10px 6px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ===== City Page Audio & Transcript Styles ===== */
+.audio-wrapper {
+    background: #f8faff;
+    padding: 20px 20px 10px 20px;
+    border-radius: 12px;
+    border: 1px solid #dce3ed;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.audio-wrapper audio {
+    width: 100%;
+    height: 54px;
+    outline: none;
+    border-radius: 8px;
+}
+
+.transcript {
+    background: #f4f8fc;
+    padding: 20px 25px;
+    border-radius: 10px;
+    border-left: 5px solid #1e3a8a;
+    margin-top: 10px;
+}
+.transcript p {
+    margin: 8px 0;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #1e2a3a;
+}
+.transcript .sub-line {
+    display: inline-block;
+    background: #e9eff8;
+    padding: 0 12px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* 侧边栏中的主题网格（更紧凑） */
+.sidebar .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 8px;
+    margin-top: 15px;
+}
+.sidebar .topic-grid a {
+    display: block;
+    background: #ffffff;
+    padding: 8px 4px;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #1a2a3a;
+    font-weight: 500;
+    font-size: 0.85rem;
+    border: 1px solid #dce3ed;
+    transition: background 0.2s;
+    box-shadow: none;
+}
+.sidebar .topic-grid a:hover {
+    background: #d4e0f0;
+    border-color: #8aa3c9;
+}
+/* 当前选中的主题高亮 */
+.sidebar .topic-grid a.active-topic {
+    background: #d4e0f0;
+    font-weight: bold;
+    border-color: #1e3a8a;
+}
+
+/* 小屏手机适配 */
+@media (max-width: 767px) {
+    .sidebar .topic-grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    }
+}
+
+/* ===== Playback Speed Controls ===== */
+.speed-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    align-items: center;
+}
+.speed-controls span {
+    font-size: 0.9rem;
+    color: #1e3a8a;
+    font-weight: 500;
+    margin-right: 6px;
+}
+.speed-btn {
+    background: #e9eff8;
+    border: 1px solid #bcc9db;
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1a2a3a;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+.speed-btn:hover {
+    background: #d4e0f0;
+    border-color: #8aa3c9;
+}
+.speed-btn.active-speed {
+    background: #1e3a8a;
+    border-color: #1e3a8a;
+    color: white;
+}
+.speed-btn:active {
+    transform: scale(0.95);
+}

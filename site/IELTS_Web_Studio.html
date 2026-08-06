@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - IELTS Web Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/IELTS_Web_Studio.css">
+</head>
+<body>
+    <main>
+        <header>
+            <div class="header-top">
+                <h1>IELTS Web Studio</h1>
+                
+                <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+            
+            <nav id="nav-menu">
+                <a href="IELTS_Web_Studio.html"  class="active">Home</a>
+                <a href="Listening.html">Listening</a>
+                <a href="Reading.html">Reading</a>
+                <a href="Writing.html">Writing</a>
+                <a href="Speaking.html">Speaking</a>
+            </nav>
+        </header>
+        
+        <section class="hero">
+            <h2>Welcome to IELTS Studio</h2>
+            <p>Listening Reading Writing Speaking </p>
+        </section>
+        
+        <section class="content">
+            <h2>About Us</h2>
+            <p></p>
+            <hr>
+            
+            <h3>Tomoki Seki</h3>
+            
+            <p></p>
+            
+            <br>
+            
+        </section>
+        
+        <aside class="sidebar">
+            <h2></h2>
+            <p></p>
+            
+        </aside>
+        
+        <footer>
+            <p>2026 SEKI TOMOKI</p>
+        </footer>
+    </main>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburgerBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active-menu');
+            hamburgerBtn.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

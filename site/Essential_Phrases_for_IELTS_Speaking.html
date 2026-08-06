@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - IELTS Web Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/IELTS_Web_Studio.css">
+</head>
+<body>
+    <main>
+        <header>
+            <div class="header-top">
+                <h1>IELTS Speaking Studio</h1>
+                
+                <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+            
+            
+            <nav id="nav-menu">
+                <a href="IELTS-Web-Studio.html">Home</a>
+                <a href="Listening.html">Listening</a>
+                <a href="Reading.html">Reading</a>
+                <a href="Writing.html">Writing</a>
+                <a href="Speaking.html" class="active">Speaking</a>
+            </nav>
+        </header>
+        
+        <section class="hero">
+            <h2>Essential Phrases for IELTS Speaking</h2>
+            <p>This booklet provides 307 practical phrases that are most worth memorising for the IELTS speaking test. Please choose which ones to learn based on your own preparation time and level of English; you do not need to learn them all.</p>
+        </section>
+        
+        <section class="content">
+            <h2></h2>
+            <p></p>
+            <hr>
+            
+            <h3></h3>
+            <p></p>
+            
+            <br>
+            
+        </section>
+        
+        <aside class="sidebar">
+            <h2></h2>
+            <p></p>      
+            
+            <hr>
+            <h2></h2>
+            <p></p>
+            
+        </aside>
+        
+        <footer>
+            <p>2026 SEKI TOMOKI</p>
+        </footer>
+    </main>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburgerBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active-menu');
+            hamburgerBtn.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
